@@ -4,9 +4,10 @@ const request = require('request');
 // CAN be named anything as long as consistent
 // a.k.a anonymous function
 
-const forecast = (long, lat, vitamin) => {
+const forecast = (lat, long, vitamin) => {
     const url =
-        'https://api.darksky.net/forecast/549f8a11e8b3ec14ac2bb6accf2f6f34/' + long + ',' + lat + '/?units=si';
+        'https://api.darksky.net/forecast/549f8a11e8b3ec14ac2bb6accf2f6f34/' + lat + ',' + long + '?units=si'
+
 
     request({ url: url, json: true }, (err, res) => {
         if (err) {

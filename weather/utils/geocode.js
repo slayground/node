@@ -14,7 +14,8 @@ const geocode = (address, callback) => {
         } else {
             const lat = res.body.features[0].center[1];
             const long = res.body.features[0].center[0];
-            callback(undefined, { lat, long });
+            const location = res.body.features[0].place_name
+            callback(undefined, { lat, long, location });
         }
     });
 };

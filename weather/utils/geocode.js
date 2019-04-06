@@ -1,6 +1,10 @@
+const request = require('request');
+
 const geocode = (address, callback) => {
     const geocodeURL =
-        'https://api.mapbox.com/geocoding/v5/mapbox.places/' + encodeURIComponent(address) + '.json?access_token=pk.eyJ1IjoiY29zbW9oZ2FtZXIiLCJhIjoiY2p1NGpjc2c5MHluczQ1cDhkMG9iaWc1ZiJ9.Ta0B5_5dACVYLMYsZdUAig';
+        'https://api.mapbox.com/geocoding/v5/mapbox.places/' +
+        encodeURIComponent(address) +
+        '.json?access_token=pk.eyJ1IjoiY29zbW9oZ2FtZXIiLCJhIjoiY2p1NGpjc2c5MHluczQ1cDhkMG9iaWc1ZiJ9.Ta0B5_5dACVYLMYsZdUAig';
 
     request({ url: geocodeURL, json: true }, (err, res) => {
         if (err) {
@@ -10,12 +14,9 @@ const geocode = (address, callback) => {
         } else {
             const lat = res.body.features[0].center[1];
             const long = res.body.features[0].center[0];
-            callback(undefined, {lat, long});
+            callback(undefined, { lat, long });
         }
     });
 };
 
-geocode('Dallas', (err, data) => {
-    console.log('Error: ' + err);
-    console.log('Data: ' + JSON.stringify(data));
-});
+module.exports = geocode;

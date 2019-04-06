@@ -8,16 +8,16 @@ if (!address) {
     return
 }
 
-geocode(address, (err, geocodeData) => {
+geocode(address, (err, { latitude, longitude, location}) => {
     if (err) {
         return console.log(err)
     }
-    forecast(geocodeData.lat, geocodeData.long, (err, forecastData) => {
+    forecast(latitude, longitude, (err, forecastData) => {
         if (err) {
             return console.log(err)
         }
 
-        console.log(geocodeData.location)
+        console.log(location)
         console.log(forecastData)
     })
 });

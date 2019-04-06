@@ -12,10 +12,10 @@ const geocode = (address, callback) => {
         } else if (res.body.features.length === 0) {
             callback('No location', undefined);
         } else {
-            const lat = res.body.features[0].center[1];
-            const long = res.body.features[0].center[0];
+            const latitude = res.body.features[0].center[1];
+            const longitude = res.body.features[0].center[0];
             const location = res.body.features[0].place_name
-            callback(undefined, { lat, long, location });
+            callback(undefined, { latitude, longitude, location });
         }
     });
 };

@@ -9,7 +9,7 @@ const forecast = (lat, long, vitamin) => {
         'https://api.darksky.net/forecast/549f8a11e8b3ec14ac2bb6accf2f6f34/' + lat + ',' + long + '?units=si'
 
 
-    request({ url: url, json: true }, (err, res) => {
+    request({ url, json: true }, (err, res) => {
         if (err) {
             vitamin('No connection', undefined);
         } else if (res.body.err) {

@@ -1,7 +1,7 @@
 const geocode = require('./utils/geocode')
-const weather = require('./utils/weather')
+const forecast = require('./utils/forecast')
 
-weather('dummy data', (err, data) => {
+forecast(32.776, -96.89, (err, data) => {
     console.log('Error: ' + err);
     console.log('Data: ' + data);
 })

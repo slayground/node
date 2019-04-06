@@ -2,9 +2,11 @@ const request = require('request');
 
 // vitamin is a callback function that
 // CAN be named anything as long as consistent
-const weather = (location, vitamin) => {
+// a.k.a anonymous function
+
+const forecast = (long, lat, vitamin) => {
     const url =
-        'https://api.darksky.net/forecast/549f8a11e8b3ec14ac2bb6accf2f6f34/37.8267,-122.4233/?units=si';
+        'https://api.darksky.net/forecast/549f8a11e8b3ec14ac2bb6accf2f6f34/' + long + ',' + lat + '/?units=si';
 
     request({ url: url, json: true }, (err, res) => {
         if (err) {
@@ -18,4 +20,4 @@ const weather = (location, vitamin) => {
     });
 };
 
-module.exports = weather;
+module.exports = forecast;

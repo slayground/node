@@ -29,6 +29,7 @@ const product = {
 // console.log(stock)
 // console.log(rating)
 
+// destructure undefined objects: { label, stock } = {}
 const transaction = (type, { label, stock }) => {
     console.log(type, label, stock)
 }

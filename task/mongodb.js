@@ -2,9 +2,14 @@
 
 const mongodb = require('mongodb');
 const MongoClient = mongodb.MongoClient;
+const ObjectID = mongodb.ObjectID;
 
 const connectionUrl = 'mongodb://127.0.0.1:27017';
 const database = 'task-manager';
+
+const id = new ObjectID();
+console.log(id)
+console.log(id.getTimestamp())
 
 MongoClient.connect(
     connectionUrl,
@@ -29,39 +34,48 @@ MongoClient.connect(
         //     }
         // );
 
-        db.collection('users').insertMany([
-            {
-                firstName: 'Dylan',
-                lastName: 'Field'
-            }, {
-                firstName: 'Evan',
-                lastName: 'Wallace'
-            }
-        ], (error, result) => {
-            if (error) {
-                return console.log(error)
-            }
+        // db.collection('users').insertMany(
+        //     [
+        //         {
+        //             firstName: 'Dylan',
+        //             lastName: 'Field'
+        //         },
+        //         {
+        //             firstName: 'Evan',
+        //             lastName: 'Wallace'
+        //         }
+        //     ],
+        //     (error, result) => {
+        //         if (error) {
+        //             return console.log(error);
+        //         }
 
-            console.log(result)
-        })
+        //         console.log(result);
+        //     }
+        // );
 
-        db.collection('tasks').insertMany([
-            {
-                desc: 'Learn Swift',
-                completed: false
-            }, {
-                desc: 'Read Disrupted',
-                completed: true
-            }, {
-                desc: 'Finish Schemango',
-                completed: false
-            }
-        ], (error, result) => {
-            if (error) {
-                return console.log(error)
-            }
+        // db.collection('tasks').insertMany(
+        //     [
+        //         {
+        //             desc: 'Learn Swift',
+        //             completed: false
+        //         },
+        //         {
+        //             desc: 'Read Disrupted',
+        //             completed: true
+        //         },
+        //         {
+        //             desc: 'Finish Schemango',
+        //             completed: false
+        //         }
+        //     ],
+        //     (error, result) => {
+        //         if (error) {
+        //             return console.log(error);
+        //         }
 
-            console.log(result.ops)
-        })
+        //         console.log(result.ops);
+        //   }
+        //);
     }
 );

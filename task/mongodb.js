@@ -21,61 +21,28 @@ MongoClient.connect(
 
         const db = client.db(database);
 
-        // db.collection('users').insertOne(
-        //     {
-        //         firstName: 'Duy',
-        //         lastName: 'Pham'
-        //     },
-        //     (error, result) => {
-        //         if (error) {
-        //             return console.log(error)
-        //         }
-        //         console.log(result.ops)
-        //     }
-        // );
+        db.collection('users').findOne({ _id: new ObjectID("5cad1da2cbf358dacdb8edb9")}, (error, result) => {
+            if (error) {
+                return console.log("Can't fetch")
+            }
 
-        // db.collection('users').insertMany(
-        //     [
-        //         {
-        //             firstName: 'Dylan',
-        //             lastName: 'Field'
-        //         },
-        //         {
-        //             firstName: 'Evan',
-        //             lastName: 'Wallace'
-        //         }
-        //     ],
-        //     (error, result) => {
-        //         if (error) {
-        //             return console.log(error);
-        //         }
+            console.log(result)
+        })
 
-        //         console.log(result);
-        //     }
-        // );
+        db.collection('users').find({ lastName: 'Pham' }).toArray((error, result) => {
+            if (error) {
+                return console.log(error)
+            }
 
-        // db.collection('tasks').insertMany(
-        //     [
-        //         {
-        //             desc: 'Learn Swift',
-        //             completed: false
-        //         },
-        //         {
-        //             desc: 'Read Disrupted',
-        //             completed: true
-        //         },
-        //         {
-        //             desc: 'Finish Schemango',
-        //             completed: false
-        //         }
-        //     ],
-        //     (error, result) => {
-        //         if (error) {
-        //             return console.log(error);
-        //         }
+            console.log(result)
+        });
 
-        //         console.log(result.ops);
-        //   }
-        //);
+        db.collection('tasks').find({ completed: false}).toArray((error, result) => {
+            if (error) {
+                return console.log(error)
+            }
+
+            console.log(result)
+        })
     }
 );

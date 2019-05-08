@@ -43,17 +43,17 @@ const add = (a, b) => {
 
 
 // Callback hell
-add(4, 5).then((sum) => {
-    console.log(sum)
+// add(4, 5).then((sum) => {
+//     console.log(sum)
 
-    add(sum, 3).then((sum2) => {
-        console.log(sum2)
-    }).catch((e) => {
-        console.log(e)
-    })
-}).catch((e) => {
-    console.log(e)
-})
+//     add(sum, 3).then((sum2) => {
+//         console.log(sum2)
+//     }).catch((e) => {
+//         console.log(e)
+//     })
+// }).catch((e) => {
+//     console.log(e)
+// })
 
 // Promise chaining
 add(2, 4).then((sum) => {
